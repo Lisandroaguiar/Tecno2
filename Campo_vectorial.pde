@@ -1,13 +1,13 @@
-int len =25;
+int len;
 int w, h;
 int cols, fila;
 float off;
 float u;
 float v;
-float inc=5;
+float inc=2;
 float inca=1;
 float a, b;
-int q=60;
+int q=0;
 int z;
 int p;
    Paleta paleta;
@@ -19,12 +19,13 @@ PVector campo (float x, float y) {
   y = map(y, 0, height, a, b);
 
   float u =-log(abs(x)+z); //funciones que definiran la forma del campo vectorial
-  float v =log(abs(y)+p);
+  float v =log(abs(y)+p); //DUDA: puedo elegir entre una funcion u otra para poner aca???? como un random pero de formulas
   return new PVector(u, v); //retorna un vector que obedece esas funciones
 }
 void setup () {
-  z=int(random(-3,3));
+  z=int(random(-3,3));//DUDA: como excluyo numeros del random?
     p=int(random(-3,3));
+    len=int(random(13,20));
   size(630, 630);
  paleta=new Paleta("paleta.jpg");
   println(q);
@@ -46,10 +47,11 @@ void draw() {
   if (mousePressed==true) {
 
     q+=inc;
-  } else {
-    q=10;
-    len=10;
-    background(255);
+  } else if(q>0) {
+    q-=1;
+   
+background(255);
   }
+  
   println(len, q);
 }
