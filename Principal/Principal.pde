@@ -73,9 +73,9 @@ void draw() {
     marcaDeTiempoA=marcaDeTiempo;
   }
 
-  if (gestorPitch.derivadaNorm()>0.8 && w<=3 && contador>0 && contador<2) {
+  if (gestorPitch.filtradoNorm()>0.6 && w<=3 && contador>0 && contador<2) {
     w++;
-  } else if (gestorPitch.derivadaNorm()<0 && w>0 && contador>0 && contador<2) {
+  } else if (gestorPitch.filtradoNorm()<0.6 && w>0 && contador>0 && contador<2) {
     w--;
   }
   if (gestorPitch.derivadaNorm()>0 && haySonido==true ) {
