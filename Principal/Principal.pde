@@ -28,7 +28,7 @@ float q;
 float inc=0.5;
 int w=int(random(4));
 float enrularlo=0.7;
-int separacion=int(random(10, 13));
+int separacion=int(random(10, 14));
 void setup() {
   background(0);
   flujo=new Flujo(3);
